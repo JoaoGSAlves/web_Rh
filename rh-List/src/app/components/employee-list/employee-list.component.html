@@ -1,0 +1,165 @@
+<div class="content">
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a id="titles" class="navbar-brand">Gestão de Empregados</a>
+      <div class="navbar-links">
+        <a id="titles" href="https://localhost:7216/swagger">Swagger</a>
+        <a id="titles" href="">Voltar ao Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="header">
+      <input type="text" id="search" placeholder="Pesquisar..." [(ngModel)]="searchTerm" (input)="filterEmployees()" />
+      <button id="addUser" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Adicionar Empregado
+      </button>
+    </div>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Data de Nascimento</th>
+          <th>ID Empregados</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>CPF</th>
+          <th>Endereço</th>
+          <th>Editar</th>
+          <th>Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of filteredEmployees | paginate: { itemsPerPage: 7, currentPage: currentPage }">
+          <td>{{ employee.dateOfBirth | date }}</td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.cpf }}</td>
+          <td>{{ employee.address }}</td>
+          <td>
+            <button class="edit-btn btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+              (click)="openEditModal(employee) ">
+              Editar
+            </button>
+          </td>
+          <td>
+            <button class="delete-btn btn btn-outline-danger" (click)="deleteEmpregado(employee.id)">
+              Deletar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls class="pagination-controls" (pageChange)="onPageChange($event)"></pagination-controls>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2023 Meu App. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- Modal Create User -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #empregadoForm="ngForm">
+          <div class="mb-3">
+            <label for="Nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="userName" [(ngModel)]="newEmpregado.firstName" name="firstName"
+              required />
+          </div>
+          <div class="mb-3">
+            <label for="Sobrenome" class="form-label">Sobrenome</label>
+            <input type="text" class="form-control" id="userLastName" [(ngModel)]="newEmpregado.lastName"
+              name="lastName" required />
+          </div>
+          <div class="mb-3">
+            <label for="userEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="userEmail" [(ngModel)]="newEmpregado.email" name="email"
+              required />
+          </div>
+          <div class="mb-3">
+            <label for="Cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="userCpf" [(ngModel)]="newEmpregado.cpf" name="cpf" required />
+          </div>
+          <div class="mb-3">
+            <label for="Address" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="userAddress" [(ngModel)]="newEmpregado.address" name="address"
+              required />
+          </div>
+          <div class="mb-3">
+            <label for="dateOfBirth" class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control" id="userDateOfBirth" [(ngModel)]="newEmpregado.dateOfBirth"
+              name="dateOfBirth" required />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="createEmpregado()">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Edit User -->
+<div class="modal" [ngClass]="{'show': isEditModalOpen, 'fade': !isEditModalOpen}" tabindex="-1"
+  [ngStyle]="{'display': isEditModalOpen ? 'block' : 'none'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit User</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeEditModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form #editEmpregadoForm="ngForm">
+          <div class="mb-3">
+            <label for="editFirstName" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="editFirstName" [(ngModel)]="selectedEmpregado.firstName"
+              name="firstName" required />
+          </div>
+          <div class="mb-3">
+            <label for="editLastName" class="form-label">Sobrenome</label>
+            <input type="text" class="form-control" id="editLastName" [(ngModel)]="selectedEmpregado.lastName"
+              name="lastName" required />
+          </div>
+          <div class="mb-3">
+            <label for="editEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="editEmail" [(ngModel)]="selectedEmpregado.email" name="email"
+              required />
+          </div>
+          <div class="mb-3">
+            <label for="editCpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="editCpf" [(ngModel)]="selectedEmpregado.cpf" name="cpf"
+              required />
+          </div>
+          <div class="mb-3">
+            <label for="editAddress" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="editAddress" [(ngModel)]="selectedEmpregado.address"
+              name="address" required />
+          </div>
+          <div class="mb-3">
+            <label for="editDateOfBirth" class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control" id="editDateOfBirth" [(ngModel)]="selectedEmpregado.dateOfBirth"
+              name="dateOfBirth" required />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateEmpregado()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

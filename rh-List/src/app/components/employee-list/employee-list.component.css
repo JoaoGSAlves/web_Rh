@@ -1,0 +1,242 @@
+* {
+  overflow: auto;
+}
+.content {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  padding: 1em;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#titles {
+  color: indigo;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-links a {
+  margin-left: 1em;
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+#search {
+  width: 35%;
+  margin-left: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 17px;
+  border: 1.5px solid gray;
+  height: 45px;
+}
+
+#search:active {
+  border: none;
+}
+
+#addUser {
+  height: 45px;
+  padding: 6px 15px;
+  font-size: 1em;
+  background-color: #7554c9;
+  color: white;
+  border: 1.5px solid gray;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-left: 35px;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  touch-action: manipulation;
+  will-change: transform;
+}
+#addUser:disabled {
+  pointer-events: none;
+}
+
+#addUser:hover {
+  box-shadow: rgb(6 2 10 / 25%) 4px 6px 9px;
+  transform: translateY(-1px);
+}
+
+#addUser:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 25px 0;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #7554c9;
+  color: #ffffff;
+  text-align: left;
+  font-weight: 500;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  text-align: left;
+  width: auto;
+}
+
+.styled-table th:last-child,
+.styled-table td:last-child {
+  text-align: center;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #7554c9;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #6c7ae0;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 5px 10px;
+  margin: 2px;
+  font-size: 0.9em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.footer {
+  background-color: #7554c9;
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 5%;
+  overflow: hidden;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container p {
+  margin-top: 15px;
+}
+.snackbar-success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.snackbar-error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.pagination-controls ::ng-deep {
+  display: flex !important ;
+  justify-content: center !important ;
+  margin-top: 20px !important;
+}
+
+.pagination-controls::ng-deep .ngx-pagination {
+  display: flex !important ;
+  list-style: none !important ;
+  padding: 0 !important ;
+}
+
+.pagination-controls::ng-deep .ngx-pagination li {
+  margin: 0 5px !important ;
+}
+
+.pagination-controls::ng-deep .ngx-pagination li a {
+  display: block !important ;
+  padding: 5px 10px !important ;
+  border: 1px solid #ddd !important ;
+  border-radius: 4px !important ;
+  text-decoration: none !important ;
+  color: #333 !important ;
+}
+
+.pagination-controls ::ng-deep .ngx-pagination li a:hover {
+  background-color: #f0f0f0 !important ;
+  border-color: #bbb !important ;
+}
+
+.pagination-controls ::ng-deep .ngx-pagination li.active a {
+  background-color: #7554c9 !important ;
+  color: white !important ;
+  border-color: #7554c9 !important ;
+}
+
+.pagination-controls ::ng-deep .ngx-pagination .current {
+  display: block !important ;
+  padding: 5px 10px !important ;
+  border: 1px solid #ddd !important ;
+  border-radius: 4px !important ;
+  text-decoration: none !important ;
+  background-color: #7554c9 !important ;
+  color: white !important ;
+  border-color: #7554c9 !important ;
+}
+
+.pagination-controls::ng-deep .ngx-pagination li.disabled a {
+  color: #ccc !important ;
+  cursor: not-allowed !important ;
+}
