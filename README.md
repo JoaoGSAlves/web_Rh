@@ -39,8 +39,10 @@ Através de uma interface intuitiva e recursos avançados, buscamos facilitar a 
 
 1. **@angular/material@18.0.3**
 - Componentes de UI baseados em Material Design para Angular.
+---
 1.1 **@ng-bootstrap/ng-bootstrap@17.0.0**
 - Integração dos componentes Bootstrap com Angular.
+---
 1.2 **bootstrap@5.3.3**
 - Framework CSS para desenvolvimento responsivo e componentes de UI.
 ---
