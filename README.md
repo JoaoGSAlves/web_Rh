@@ -3,8 +3,6 @@
 ## .NET 8 & Angular 18 <img align="right" width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" /> <img align="right" width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" />
 
 Bem-vindo à Raposo RH - Gestão de Empregados! 
-Somos uma empresa líder na indústria de eletrônicos, comprometida com a inovação e a tecnologia de ponta. Nossos produtos incluem celulares, smart TVs e notebooks. Atualmente, enfrentamos desafios significativos em controle, manutenção de vendas e logística. 
-Para enfrentar esses desafios, estamos desenvolvendo um MVP revolucionário destinado a otimizar esses processos.
 
 ## Objetivo do Projeto
 
@@ -25,11 +23,11 @@ Através de uma interface intuitiva e recursos avançados, buscamos facilitar a 
   - Instância de banco de dados
 
 #### Pacotes
-1. AutoMapper
+1. EntityFramework
 ---
 2. Authentication.JwtBearer
 ---
-3. EntityFramework
+3. EntityFramework.Design
 ---
 4. SQLite (para desenvolvimento e portabilidade)
 ---
@@ -67,7 +65,7 @@ Iniciando o processo de instalação da aplicação, temos que efetuar 3 passos:
 **1. Clonar o repositório**
 ```bash
 # Exemplo de comando para clonar o repositório
-git clone https://github.com/JoaoGSAlves/web_Rh
+git clone https://github.com/JoaoGSAlves/web_Rh.git
 cd web_Rh
 ```
 
