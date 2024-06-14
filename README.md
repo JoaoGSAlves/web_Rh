@@ -35,7 +35,7 @@ Através de uma interface intuitiva e recursos avançados, buscamos facilitar a 
 
 ### Front-End
 
-#### Bibliotecas Utilizadas (6)
+#### Bibliotecas Utilizadas
 
 1. **@angular/material@18.0.3**
 - Componentes de UI baseados em Material Design para Angular.
