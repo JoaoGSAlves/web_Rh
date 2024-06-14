@@ -24,7 +24,7 @@ export class EmpregadoService {
 
   getToken(Token: Token): Observable<any> {
     return this.http.post<Token>(
-      'https://localhost:7216/api/Identity/token',
+      'http://localhost:5222/api/Identity/token',
       Token,
       this.httpOptions
     );
