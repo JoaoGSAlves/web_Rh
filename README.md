@@ -1,8 +1,8 @@
-# Raposo RH - Gestão de Empregados
+# Gestão de Empregados
 
 ## .NET 8 & Angular 18 <img align="right" width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" /> <img align="right" width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" />
 
-Bem-vindo à Raposo RH - Gestão de Empregados! 
+Bem-vindo à  RH - Gestão de Empregados! 
 
 ## Objetivo do Projeto
 
